@@ -1,0 +1,46 @@
+﻿
+@model IEnumerable<CpPartOne.Models.Teacher>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<!-- message for data insertion or any problem while inserting data -->
+@if (ViewBag.result != null)
+{
+
+    if (ViewBag.result == "1")
+    {
+        <script>alert("Data Added Succesfully")</script>
+    }
+    else if (ViewBag.result == "0")
+    {
+        <script>alert("There was problem while inserting data. Please Try again")</script>
+    }
+
+}
+
+
+<div class="top-container">
+    <a href="~/Home/index" class="back-link">Back to home</a>
+    <a href="~/Teacher/new" class="back-link">Insert New Teacher</a>
+</div>
+
+<h2>Teachers List</h2>
+<p>Click on teacher's name to see more details</p>
+
+
+<div class="list-container">
+
+
+    @foreach (var teacher in Model)
+    {
+        // from model that we have passed from TeacherController
+        // we can access data
+        // creating link for another view that displays teachers data
+
+        <p class="list-item">@teacher.TeacherId <a href="~/Teacher/show/@teacher.TeacherId"> @teacher.TeacherFname  @teacher.TeacherLname </a></p>
+
+    }
+
+</div>

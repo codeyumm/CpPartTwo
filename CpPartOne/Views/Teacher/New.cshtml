@@ -1,0 +1,46 @@
+﻿@model CpPartOne.Models.Teacher
+<!-- JS FILE for client side validation -->
+@Scripts.Render("~/Scripts/script.js")
+@{
+    ViewBag.Title = "New";
+}
+<div id="new-teacher-container">
+
+    <h2>Add Teacher</h2>
+    <form method="POST" action="/Teacher/Add" id="addTeacherForm">
+
+        <!-- Input fields -->
+        <!-- for validation -->
+        <!-- using required for field which are compulsary to fill -->
+        <!-- using different input type like (number, text and date) to ensure that
+    user only write valid value type-->
+
+        <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="teacherFirstName" placeholder="Enter first name" required />
+        </div>
+
+        <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="teacherLastName" placeholder="Enter last name" required />
+        </div>
+
+        <div>
+            <label for="employeeNumber">Employee Number</label>
+            <input type="text" id="employeeNumber" name="employeeNumber" placeholder="Enter employee number" required />
+        </div>
+
+        <div>
+            <label for="hireDate">Hire Date</label>
+            <input type="date" id="hireDate" name="teacherHireDate" placeholder="Enter date of hiring" required />
+        </div>
+
+        <div>
+            <label for="salary">Salary</label>
+            <input type="number" id="salary" name="teacherSalary" placeholder="Enter salary" required />
+        </div>
+
+        <input type="submit" value="Add to database" id="btnDelete" />
+
+</form>
+</div>
